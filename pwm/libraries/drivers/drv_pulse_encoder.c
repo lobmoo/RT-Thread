@@ -284,7 +284,7 @@ int hw_pulse_encoder_init(void)
 {
     int i;
     int result;
-
+    LOG_E("%s register failed\n");
     result = RT_EOK;
     for (i = 0; i < sizeof(stm32_pulse_encoder_obj) / sizeof(stm32_pulse_encoder_obj[0]); i++)
     {
@@ -297,7 +297,7 @@ int hw_pulse_encoder_init(void)
             result = -RT_ERROR;
         }
     }
-
+    LOG_E("%s register failed", stm32_pulse_encoder_obj[i].name);
     return result;
 }
 INIT_BOARD_EXPORT(hw_pulse_encoder_init);
