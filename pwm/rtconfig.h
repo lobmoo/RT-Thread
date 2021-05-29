@@ -238,8 +238,8 @@
 
 /* Notice: PB6 --> 22; PB7 --> 23 */
 
-#define BSP_I2C1_SCL_PIN 22
-#define BSP_I2C1_SDA_PIN 23
+#define BSP_I2C1_SCL_PIN  GET_PIN(H,13)
+#define BSP_I2C1_SDA_PIN  GET_PIN(H,15)
 #define BSP_USING_TIM
 #define BSP_USING_TIM5
 #define BSP_USING_ONCHIP_RTC
@@ -249,6 +249,7 @@
 #define BSP_USING_PWM5_CH2
 #define BSP_USING_PULSE_ENCODER
 #define BSP_USING_PULSE_ENCODER3
+#define BSP_USING_PULSE_ENCODER1
 /* end of On-chip Peripheral */
 /* end of Hardware Drivers Config */
 

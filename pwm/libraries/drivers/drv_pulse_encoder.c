@@ -13,6 +13,19 @@
 #include "rt-thread/components/drivers/include/drivers/pulse_encoder.h"
 #ifdef RT_USING_PULSE_ENCODER
 
+
+/********************************************************************
+ *  /*mpu
+ *   *SCL:
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ * *******************************************************************/
+
 //#define DRV_DEBUG
 #define LOG_TAG             "drv.pulse_encoder"
 #include <drv_log.h>
@@ -20,7 +33,7 @@
 #if !defined(BSP_USING_PULSE_ENCODER1) && !defined(BSP_USING_PULSE_ENCODER2) && !defined(BSP_USING_PULSE_ENCODER3) \
     && !defined(BSP_USING_PULSE_ENCODER4) && !defined(BSP_USING_PULSE_ENCODER5) && !defined(BSP_USING_PULSE_ENCODER6)
     #error "Please define at least one BSP_USING_PULSE_ENCODERx"
-    /* this driver can be disabled at menuconfig 鈫� RT-Thread Components 鈫� Device Drivers */
+    /* this driver can be disabled at menuconfig RT-Thread Components Device Drivers */
 #endif
 
 #define AUTO_RELOAD_VALUE 0x7FFF
@@ -226,7 +239,7 @@ void pulse_encoder_update_isr(struct stm32_pulse_encoder_device *device)
 }
 
 #ifdef BSP_USING_PULSE_ENCODER1
-#if defined(SOC_SERIES_STM32F4)
+#if defined(SOC_SERIES_STM32H7)
 void TIM1_UP_TIM10_IRQHandler(void)
 #elif defined(SOC_SERIES_STM32F1)
 void TIM1_UP_IRQHandler(void)
@@ -284,7 +297,6 @@ int hw_pulse_encoder_init(void)
 {
     int i;
     int result;
-    LOG_E("%s register failed\n");
     result = RT_EOK;
     for (i = 0; i < sizeof(stm32_pulse_encoder_obj) / sizeof(stm32_pulse_encoder_obj[0]); i++)
     {
@@ -297,7 +309,6 @@ int hw_pulse_encoder_init(void)
             result = -RT_ERROR;
         }
     }
-    LOG_E("%s register failed", stm32_pulse_encoder_obj[i].name);
     return result;
 }
 INIT_BOARD_EXPORT(hw_pulse_encoder_init);

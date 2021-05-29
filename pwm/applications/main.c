@@ -8,6 +8,26 @@ struct rt_device_pwm  *pwm_device = RT_NULL; //定义 pwm 设备指针
 //void MX_TIM3_Init(void);
 #define BEEP_PWM_DEVICE  "pwm5"  //定时器5
 #define BEEP_PWM_CH      1       //通道1
+
+/**************************************************************
+ * *mpu
+ *      *SCL PH13
+ *      *SDA PH15
+ * ENCODER1
+ *      *A:
+ *      *B:
+ * *ENCODER2
+ *      *A:
+ *      *B:
+ * *PWM1:
+ *      *A:
+ * *PWM2
+ *      *A:
+ *
+ *
+ *
+ *
+ **************************************************************
 /***************************************************************/
 /* defined the LED0 pin: PB1 */
 

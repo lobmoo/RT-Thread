@@ -356,6 +356,8 @@ menu "On-chip Peripheral"
         if BSP_USING_PULSE_ENCODER
             config BSP_USING_PULSE_ENCODER3
 		        bool "Enable pulse Encoder3"
+		    config BSP_USING_PULSE_ENCODER1
+		        bool "Enable pulse Encoder1"
 		        default n
 	    endif
         
